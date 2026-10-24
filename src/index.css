@@ -34,6 +34,14 @@ body{
   justify-content: center;
   align-items: center;
 }
+
+.organise{
+  width: 100vw;
+  display: grid;
+
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
 .title{
   --dark-color: hsl(184, 20%, 86%);
   --light-color: hsl(188, 40%, 18%);
@@ -59,6 +67,7 @@ input{
   --dark-color: hsl(0, 0%, 95%);
   --light-color: hsl(0,0%,0%);
   
+  position: relative;
   width: 55vh;
   height: 6vh;
   border-radius: 10px;
@@ -67,7 +76,7 @@ input{
 
   outline: 0px solid rgba(8, 120, 139, 0.8);
   box-shadow: 0 0 0px rgba(16, 219, 255, 0.341);
-
+  
   transition: 
     all 0.3s,
     margin 0.5s;
@@ -77,10 +86,10 @@ input:focus{
   box-shadow: 0 0 15px rgba(16, 219, 255, 0.341);
 }
 .main{
-  --dark-background: hsl(0, 0%, 13%);
+  --dark-background: rgb(63, 63, 63);
   --light-background: hsl(0, 0%, 95%);
-  --dark-box-shadow: 0 2px 30px hsl(0,0%,10%);
-  --light-box-shadow: 0 2px 30px rgb(66, 66, 66);
+  --dark-box-shadow: 0 2px 30px hsl(0, 0%, 0%);
+  --light-box-shadow: 0 2px 50px rgb(66, 66, 66);
   position: relative;
   margin-top: 60px;
 
@@ -126,7 +135,7 @@ ul{
 #Next{
   font-size: 20px;
   width: 30%;
-  height: 5%;
+  height: 40px;
   background-color: hsl(188, 50%, 90%);
   border: 1px solid rgb(89, 89, 89);
   border-radius: 10px;
@@ -158,12 +167,28 @@ li {
     opacity: 1;
   }
 }
+
 @keyframes fade {
   from{
     opacity: 0;
   }
   to{
     opacity: 1;
+  }
+}
+
+@keyframes error {
+  30%{
+    left: 2%;
+  }
+  60%{
+    left: -1%;
+  }
+  80%{
+    left: 1%;
+  }
+  90%{
+    left: 0;
   }
 }
 .Animating{
@@ -204,5 +229,52 @@ li {
   transform: translateX(30px);
 }
 .dark{
-  background-color: rgb(46, 46, 46);
+  background-color: hsl(0, 0%, 13%);
+}
+.error{
+  animation: error 0.3s ease-in;
+}
+section > li{
+  font-size:
+}
+@keyframes add-ranking {
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+.ranking{
+  margin-top: 60px;
+  text-align:start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 80vh;
+  animation: add-ranking 1s ease;
+}
+.ranking li {
+  --dark-color: rgb(181, 181, 181);
+  --light-color: rgb(118, 117, 117);
+  --dark-text-shadow: black;
+  --light-text-shadow: hsl(0, 1%, 44%);
+
+  -webkit-text-stroke: 1px rgb(53, 53, 53);
+  
+  
+  font-weight: bold;
+  font-size: 40px;
+
+  min-height: 50px;
+  color: gray;
+}
+.ranking li:nth-child(1){
+  color: gold;
+}
+.ranking li:nth-child(2){
+  color: silver;
+}
+.ranking li:nth-child(3){
+  color: rgb(179, 94, 60);
 }
