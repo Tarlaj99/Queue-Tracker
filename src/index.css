@@ -234,9 +234,7 @@ li {
 .error{
   animation: error 0.3s ease-in;
 }
-section > li{
-  font-size:
-}
+
 @keyframes add-ranking {
   from{
     opacity: 0;
