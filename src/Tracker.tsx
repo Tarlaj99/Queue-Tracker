@@ -1,10 +1,13 @@
 import { useEffect, useState, useRef } from 'react';
 
+console.log('1');
+
 export default function Tracker() {
   const [names, setNames] = useState<string[]>([]);
-  const [pastNames, setPastNames] = useState<object[]>([]);
+  const [pastNames, setPastNames] = useState<{name: string, points: number}[]>([]);
 
   const input = useRef<HTMLInputElement>(null);
+
   const [darkMode, setDarkMode] = useState(new Date().getHours() > 18);
 
   const backgroundColor: object = {backgroundColor: darkMode? 'var(--dark-background)' : 'var(--light-background)'};
@@ -48,7 +51,7 @@ export default function Tracker() {
     const name = names[0].trim();
     
     let index = pastNames.findIndex((person) => person.name == name)
-      
+    
     if(index != -1){
       pastNames[index].points += 1
     }
